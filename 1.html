@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <div>{{person.name}}------{{person.age}}</div>
+        <div>{{person.fav}}</div>
+        <h3>{{msg}}</h3>
+        <div v-text="msg"></div>
+        <div v-text="person.name"></div>
+        <div v-html="htmlMsg"></div>
+        <input type="text" v-model="msg">
+        <img v-bind:src="imgPath" alt="">
+        <img :src="imgPath" alt="">
+        <button v-on:click="onclick">按钮</button>
+        <button @click="onclick">按钮2</button>
+    </div>
+    <script src="./MVue.js"></script>
+    <script src="./Observer.js"></script>
+    <script>
+        let vm = new MVue({
+            el:"#app",
+            data:{
+                person:{
+                    name:"小刘",
+                    age:21,
+                    fav:"女"
+                },
+                msg:"吃饭---睡觉---打豆豆",
+                htmlMsg:"<h1>htmlMSg</h1>",
+                imgPath:"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2853553659,1775735885&fm=26&gp=0.jpg"
+            },
+            methods: {
+                onclick(){
+                    console.log(this);
+                }
+            },
+        })
+
+    </script>
+</body>
+</html>
